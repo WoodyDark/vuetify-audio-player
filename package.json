@@ -1,0 +1,17 @@
+{
+  "name": "vuetify-audio-player",
+  "version": "1.0.0",
+  "description": "Material Design HTML 5 audio player, built on Vue and Vuetify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "audio",
+    "player",
+    "vue",
+    "vuetify"
+  ],
+  "author": "WoodyDark",
+  "license": "MIT"
+}
