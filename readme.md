@@ -18,7 +18,7 @@ Material Design HTML 5 audio player, built on Vue and Vuetify
 
 ### Installation
 
-Use npm: ```npm install vuetify-audio-player --save```
+Use npm: ```npm i @woodydark/vuetify-audio-player```
 
 ### Prepare
 Ensure you have Vue installed and Vuetify setup:
@@ -46,7 +46,7 @@ Add below code into your ```<script>```:
 ```js
 export default {
     components: {
-        VuetifyAudioPlayer: () => import('vuetify-audio-player'),
+        VAudioPlayer: () => import('@woodydark/vuetify-audio-player'),
     }
 }
 
@@ -54,7 +54,7 @@ export default {
 
 And below code in the ```<template>```:
 ```html
-<vuetify-audio-player
+<v-audio-player
     src="http://www.example.com/your_music.ogg"
     track-title="Your Music"
     track-subtitle="Best of Electro Swing"
@@ -64,7 +64,7 @@ And below code in the ```<template>```:
     album-art="https://www.example.com/my-beautiful-art.jpeg"
     @next-audio="nextSrc()"
     @previous-audio="prevSrc()"
-></vuetify-audio-player>
+></v-audio-player>
 ```
 
 ### Props
