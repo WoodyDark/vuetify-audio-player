@@ -13,5 +13,9 @@
     "vuetify"
   ],
   "author": "WoodyDark",
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": "git@github.com:WoodyDark/vuetify-audio-player.git"
 }
