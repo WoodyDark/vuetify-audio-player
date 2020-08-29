@@ -1,6 +1,6 @@
 {
   "name": "@woodydark/vuetify-audio-player",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Material Design HTML 5 audio player, built on Vue and Vuetify",
   "main": "index.js",
   "scripts": {
@@ -14,9 +14,6 @@
   ],
   "author": "WoodyDark",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WoodyDark/vuetify-audio-player.git"
