@@ -17,5 +17,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "repository": "git@github.com:WoodyDark/vuetify-audio-player.git"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WoodyDark/vuetify-audio-player.git"
+  },
+  "homepage": "https://github.com/WoodyDark/vuetify-audio-player#vuetify-audio-player"
 }
