@@ -153,6 +153,7 @@ export default {
     allowNext: { type: Boolean, default: false },
     compact: { type: Boolean, default: false },
     albumArt: { type: String, default: undefined },
+    autoplay: { type: Boolean, default: false },
     // icons
     prevTrackIcon: { type: String, default: "mdi-skip-previous" },
     nextTrackIcon: { type: String, default: "mdi-skip-next" },
@@ -175,93 +176,95 @@ export default {
       seekerFocused: false,
       keydownListener: null,
       muted: false,
-    }
+    };
   },
   watch: {
     playing(value) {
       if (value) {
-        return this.$refs.audio.play()
+        return this.$refs.audio.play();
       }
-      this.$refs.audio.pause()
+      this.$refs.audio.pause();
     },
     muted(value) {
-      this.$refs.audio.muted = value
+      this.$refs.audio.muted = value;
     },
     audioDownloaded(value) {
-      if (value) {
-        this.playing = true
+      if (this.autoplay) {
+        if (value) {
+          this.playing = true;
+        }
       }
     },
     src(value) {
       if (value) {
-        this.audioDownloaded = false
-        this.playing = false
+        this.audioDownloaded = false;
+        this.playing = false;
       }
     },
     volume() {
-      this.muted = false
+      this.muted = false;
     },
   },
   computed: {
     volumeIcon() {
       if (this.muted) {
-        return this.muteVolumeIcon
+        return this.muteVolumeIcon;
       } else if (this.volume === 0) {
-        return this.lowVolumeIcon
+        return this.lowVolumeIcon;
       } else if (this.volume >= 50) {
-        return this.highVolumeIcon
+        return this.highVolumeIcon;
       } else {
-        return this.mediumVolumeIcon
+        return this.mediumVolumeIcon;
       }
     },
   },
   methods: {
     setVolume(value) {
-      this.volume = value
-      this.$refs.audio.volume = value / 100
+      this.volume = value;
+      this.$refs.audio.volume = value / 100;
     },
     forwardSeconds(seconds) {
-      let newTimestamp = this.currentTime + seconds
+      let newTimestamp = this.currentTime + seconds;
 
       if (newTimestamp < 0) {
-        newTimestamp = 0
+        newTimestamp = 0;
       } else if (newTimestamp > this.duration) {
-        newTimestamp = this.duration
+        newTimestamp = this.duration;
       }
 
-      this.$refs.audio.currentTime = newTimestamp
+      this.$refs.audio.currentTime = newTimestamp;
     },
     setDuration() {
-      this.duration = this.$refs.audio.duration
+      this.duration = this.$refs.audio.duration;
     },
     handleTimeUpdate() {
-      this.currentTime = this.$refs.audio.currentTime
+      this.currentTime = this.$refs.audio.currentTime;
     },
     handleAudioEnd() {
       if (this.allowNext) {
-        this.$emit("next-audio")
+        this.$emit("next-audio");
       }
     },
     seek(timePercent) {
       this.$refs.audio.currentTime =
-        this.$refs.audio.duration * (timePercent / 1000000.0)
+        this.$refs.audio.duration * (timePercent / 1000000.0);
     },
   },
   mounted() {
-    this.$refs.audio.volume = this.volume / 100
-    this.muted = this.$refs.audio.muted
+    this.$refs.audio.volume = this.volume / 100;
+    this.muted = this.$refs.audio.muted;
 
     this.keydownListener = document.addEventListener("keydown", (event) => {
       if (event.keyCode === 32 && this.seekerFocused) {
-        event.preventDefault()
-        this.playing = !this.playing
+        event.preventDefault();
+        this.playing = !this.playing;
       }
-    })
+    });
   },
   beforeDestroy() {
-    document.removeEventListener("keydown", this.keydownListener)
+    document.removeEventListener("keydown", this.keydownListener);
   },
-}
+};
 </script>
 
 <style lang="scss">

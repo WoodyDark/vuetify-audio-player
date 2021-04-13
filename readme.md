@@ -37,10 +37,10 @@ npm install vuetify --save-dev
 2. Add Vuetify to `app.js` or `main.js`:
 
 ```js
-import Vuetify from "vuetify"
-import "vuetify/dist/vuetify.min.css"
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
 
-Vue.use(Vuetify)
+Vue.use(Vuetify);
 ```
 
 You also can use Vue plugin to install `Vuetify` by only one line command:
@@ -60,7 +60,7 @@ export default {
   components: {
     VAudioPlayer: () => import("@woodydark/vuetify-audio-player"),
   },
-}
+};
 ```
 
 And below code in the `<template>`:
@@ -73,6 +73,7 @@ And below code in the `<template>`:
   allow-previous
   allow-next
   :compact="$vuetify.breakpoint.smAndDown"
+  :autoplay="false"
   album-art="https://www.example.com/my-beautiful-art.jpeg"
   @next-audio="nextSrc()"
   @previous-audio="prevSrc()"
@@ -98,6 +99,7 @@ And below code in the `<template>`:
 - **allow-previous** (Boolean, default: false): Determines whether "Next song" button should be disabled
 - **allow-next** (Boolean, default: false): Determines whether "Previous song" button should be disabled
 - **compact** (Boolean, default: false): Display the audio player in a mobile-friendly mode
+- **autoplay** (Boolean, default: false): Autoplay the audio when it downloaded
 - **prev-track-icon** (String, default: "mdi-skip-previous" ): Icon to play the previous track
 - **next-track-icon** (String, default: "mdi-skip-next" ): Icon to play the next track
 - **back-forward-icon** (String, default: "mdi-rewind-5" ): Icon to play backforward from the current track

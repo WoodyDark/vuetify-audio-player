@@ -1,6 +1,6 @@
 {
   "name": "@woodydark/vuetify-audio-player",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Vuetify Material Design HTML 5 audio player, built on Vue and Vuetify",
   "main": "index.js",
   "scripts": {
